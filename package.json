@@ -14,7 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "preinstall": "npm install -g browserify; npm install -g http-server",
-    "server": "browserify index.js -o site/index.min.js; http-server site",
+    "build": "browserify index.js -o site/index.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
