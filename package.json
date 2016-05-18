@@ -1,0 +1,22 @@
+{
+  "name": "hackaton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-no-jsx": "^0.1.0",
+    "superagent": "^1.8.3",
+    "virtual-dom": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "preinstall": "npm install -g browserify; npm install -g http-server",
+    "server": "browserify index.js -o site/index.min.js; http-server site",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
