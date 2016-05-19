@@ -1,5 +1,5 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
+//var React = require("react");
+//var ReactDOM = require("react-dom");
 for (var key in React.DOM) global[key] = React.DOM[key];
 
 var Dunno = React.createClass({

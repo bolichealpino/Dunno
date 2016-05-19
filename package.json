@@ -17,6 +17,7 @@
   "scripts": {
     "preinstall": "npm install -g browserify; npm install -g http-server",
     "build": "browserify -d index.js -o site/index.min.js",
+    "minify": "ccjs site/index.min.js > site/index_.min.js; mv site/index_.min.js site/index.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
