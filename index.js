@@ -8,7 +8,7 @@ var Dunno = React.createClass({
         return {
             id        : 0,
             ws        : null,
-            page      : "home",
+            page      : "wall",
             question  : "",
             questions : [],
             answereds : [], // ids of the questions I don't know
@@ -165,10 +165,22 @@ var Dunno = React.createClass({
                 question_title,
                 question_answer]);
                 
+            var question_lamp = div({
+                "className": "question_lamp"},
+                //"X");
+                img({"src": (question.status==="routing" ? (question.answer==="" ? "img/lampada_apagada.png" : "img/lampada_acesa.gif") :
+                            (question.status==="accepted" ? "img/lampada_acesa.png" :
+                            "img/lampada_apagada.png")),
+                    "alt": "lampada",
+                    "width":"100",
+                    "height":"100"
+                }));
+                
             return div({
                 "className": "question"},[
                 question_head,
-                question_body
+                question_body,
+                question_lamp
                 ]);
         }.bind(this);
 
@@ -187,6 +199,7 @@ var Dunno = React.createClass({
             "id": "question_field",
             "key": "question_field",
             "className": "question_field",
+            "placeholder": "<inserir slogan aqui>",
             "onKeyPress": function(e){ if (e.which === 13) ask(); },
             "onChange": function(e){
                 st.question = e.target.value;
