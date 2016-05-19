@@ -304,7 +304,10 @@ var Dunno = React.createClass({
             return question_to_answer;
         })();
 
-        var answering_question = question_to_answer ? question(question_to_answer) : [];
+        var answering_question 
+            = question_to_answer 
+                ? div({"className": "answering_question_title"}, question_to_answer.text)
+                : div([],[]);
 
         var answer = function(){
             var input = document.getElementById("answering_input")
