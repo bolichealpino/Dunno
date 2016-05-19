@@ -34,13 +34,3 @@ app.use(function (req, res) {
  
 server.on('request', app);
 server.listen(port, function () { console.log('Listening on ' + server.address().port) });
-
-
-
-
-
-
-
-
-//var WebSocketServer = require('ws').Server;
-//var wss             = new WebSocketServer({port: 9020});
