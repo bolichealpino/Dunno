@@ -181,7 +181,7 @@ var Dunno = React.createClass({
         var logo = div({
             "onClick": function(){ st.page = "home"; }.bind(this),
             "className": st.page === "home" ? "logo" : "logo_small"},
-            "Dunno");
+            "dunno");
 
         var question_field = div({}, input({
             "id": "question_field",
