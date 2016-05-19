@@ -5,16 +5,18 @@
   "main": "test.js",
   "dependencies": {
     "colors": "^1.1.2",
+    "express": "^4.13.4",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-no-jsx": "^0.1.0",
     "superagent": "^1.8.3",
-    "virtual-dom": "^2.1.1"
+    "virtual-dom": "^2.1.1",
+    "ws": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {
     "preinstall": "npm install -g browserify; npm install -g http-server",
-    "build": "browserify index.js -o site/index.min.js",
+    "build": "browserify -d index.js -o site/index.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
