@@ -332,7 +332,7 @@ var Dunno = React.createClass({
         var answering_dunno = div({
             "className": "answering_button",
             "onClick": dunno},
-            "Dunno")
+            "Pular")
 
         var answering_menu = div({
             "className": "answer_menu"}, [
