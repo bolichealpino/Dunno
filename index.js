@@ -8,7 +8,7 @@ var Dunno = React.createClass({
         return {
             id        : 0,
             ws        : null,
-            page      : "home" ,
+            page      : "home",
             question  : "",
             questions : [],
             answereds : [], // ids of the questions I don't know
@@ -24,7 +24,9 @@ var Dunno = React.createClass({
         };
         ws.onmessage = function(msg){
             var actions = JSON.parse("["+msg.data+"]");
+            var first_pass = false;
             if (this.state.id === 0){
+                first_pass = true;
                 ++this.state.id;
                 for (var i=0, l=actions.length; i<l; ++i)
                     if (actions[i].type === "join")
@@ -48,7 +50,8 @@ var Dunno = React.createClass({
 
                     case "answer":
                     question.answer = action.answer;
-                    question.answer_time = action.time;
+                    // TODO: synchronize clocks globally
+                    question.answer_time = first_pass ? action.time : Date.now();
                     if (action.user_id === this.state.id)
                         this.state.answereds[action.question_id] = true;
                     break;
