@@ -277,7 +277,7 @@ var Dunno = React.createClass({
 
         var answering_points = div({
             "className": "answering_points"},
-            "("+this.state.points+" ponto"+(this.state.points===1?"":"s")+"!)");
+            "("+this.state.points+" ponto"+(Math.abs(this.state.points)===1?"":"s")+"!)");
 
         var answering_top = div({
             "className": "answering_top"},[
@@ -304,9 +304,20 @@ var Dunno = React.createClass({
             return question_to_answer;
         })();
 
+        var answering_question_clock = div({
+            "className": "answering_question_clock"},
+            img({"src": "img/cronometro.gif",
+                "className": "answering_question_clock_icon"}));
+
+        var answering_question_text = div({
+            "className": "answering_question_text"},
+            question_to_answer ? question_to_answer.text : "");
+
         var answering_question 
             = question_to_answer 
-                ? div({"className": "answering_question_title"}, question_to_answer.text)
+                ? div({"className": "answering_question"}, [
+                    answering_question_clock,
+                    answering_question_text])
                 : div([],[]);
 
         var answer = function(){
@@ -329,8 +340,7 @@ var Dunno = React.createClass({
 
         var answering_answer = div({
             "className": "answering_button",
-            "onClick": answer},
-            "Responder");
+            "onClick": answer},"Responder");
 
         var answering_dunno = div({
             "className": "answering_button",
