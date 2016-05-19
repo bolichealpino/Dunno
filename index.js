@@ -8,7 +8,7 @@ var Dunno = React.createClass({
         return {
             id        : 0,
             ws        : null,
-            page      : "home",
+            page      : "home" ,
             question  : "",
             questions : [],
             answereds : [], // ids of the questions I don't know
