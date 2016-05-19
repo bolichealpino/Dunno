@@ -183,7 +183,7 @@ var Dunno = React.createClass({
             "className": st.page === "home" ? "logo" : "logo_small"},
             "dunno");
 
-        var question_field = div({}, input({
+        var question_field = div({"className": "question_field_box"}, input({
             "id": "question_field",
             "key": "question_field",
             "className": "question_field",
@@ -234,7 +234,6 @@ var Dunno = React.createClass({
             [logo, question_field, buttons_container]);
 
 
-
         // WALLS PAGE
 
         var wall_top = div({
@@ -244,8 +243,7 @@ var Dunno = React.createClass({
                     "className": "wall_top_content"}, [
                     logo,
                     question_field,
-                    ask_button,
-                    quick_button])));
+                    ask_button])));
 
         var my_questions = st.questions.filter(function(question){
             return question.user_id === st.id;
@@ -324,7 +322,7 @@ var Dunno = React.createClass({
             "className": "answer_menu"}, [
             div({}, input({
                 "id": "answering_input",
-                "className": "answering_input",
+                "className": "answering_input ",
                 "onKeyDown": function(e){ if (e.which === 13) answer(); }})),
             div({}, [answering_answer, answering_dunno])]);
 
