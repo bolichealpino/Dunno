@@ -187,6 +187,7 @@ var Dunno = React.createClass({
             "id": "question_field",
             "key": "question_field",
             "className": "question_field",
+            "placeholder": "<inserir slogan aqui>",
             "onKeyPress": function(e){ if (e.which === 13) ask(); },
             "onChange": function(e){
                 st.question = e.target.value;
