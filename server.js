@@ -1,5 +1,13 @@
-var WebSocketServer = require('ws').Server;
-var wss             = new WebSocketServer({port: 9020});
+var server = require('http').createServer()
+  , url = require('url')
+  , WebSocketServer = require('ws').Server
+  , wss = new WebSocketServer({ server: server })
+  , express = require('express')
+  , app = express()
+  , port = 9020;
+
+app.use(express.static('site'));
+
 var msgs            = "";
 var clients         = [];
 var disconnected    = {};
@@ -18,3 +26,21 @@ wss.on('connection', function connection(ws) {
     ws.on('message', new_msg);
     ws.on('close', function(){ disconnected[client_id] = true; });
 });
+ 
+app.use(function (req, res) {
+  res.send({ msg: "hello" });
+});
+ 
+ 
+server.on('request', app);
+server.listen(port, function () { console.log('Listening on ' + server.address().port) });
+
+
+
+
+
+
+
+
+//var WebSocketServer = require('ws').Server;
+//var wss             = new WebSocketServer({port: 9020});
