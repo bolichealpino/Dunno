@@ -41,7 +41,7 @@ var Dunno = React.createClass({
                         "id"          : this.state.questions.length,
                         "user_id"     : action.user_id,
                         "text"        : action.question,
-                        "time"        : action.time,
+                        "time"        : first_pass ? action.time : Date.now(),
                         "answer"      : "",
                         "answer_time" : 0,
                         "persons"     : 0,
